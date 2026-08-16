@@ -4,8 +4,8 @@ coverage/
 .DS_Store
 Thumbs.db
 .idea/
-.vscode/
 *.log
 npm-debug.log*
 .temp/
 tmp/
+config.bat
