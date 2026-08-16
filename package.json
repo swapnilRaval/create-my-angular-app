@@ -1,5 +1,5 @@
 {
-  "name": "create-my-angular-app",
+  "name": "@swapnilraval077/create-my-angular-app",
   "version": "1.0.0",
   "description": "Scaffold a production-oriented Angular standalone application with Router, Material, auth, and enterprise defaults.",
   "keywords": [
@@ -15,14 +15,14 @@
     "cli"
   ],
   "license": "MIT",
-  "author": "",
-  "homepage": "https://github.com/your-org/create-my-angular-app#readme",
+  "author": "Swapnil Raval <swapnilraval077@gmail.com>",
+  "homepage": "https://github.com/swapnilRaval/create-my-angular-app.git#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/your-org/create-my-angular-app.git"
+    "url": "git+https://github.com/swapnilRaval/create-my-angular-app.git"
   },
   "bugs": {
-    "url": "https://github.com/your-org/create-my-angular-app/issues"
+    "url": "https://github.com/swapnilRaval/create-my-angular-app/issues"
   },
   "main": "src/index.js",
   "bin": {
