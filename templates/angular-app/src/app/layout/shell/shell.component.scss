@@ -1,0 +1,12 @@
+.shell {
+  min-height: 100vh;
+}
+
+.shell__nav {
+  width: var(--app-sidebar-width);
+}
+
+.shell__main {
+  padding: 1.25rem;
+  min-height: calc(100vh - var(--app-header-height) - 56px);
+}

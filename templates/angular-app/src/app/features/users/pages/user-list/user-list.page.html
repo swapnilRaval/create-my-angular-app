@@ -1,0 +1,60 @@
+<section>
+  <header class="toolbar">
+    <h1>Users</h1>
+    <a mat-flat-button routerLink="/users/new">New user</a>
+  </header>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Search</mat-label>
+    <input
+      matInput
+      #searchInput
+      (input)="onSearch(searchInput.value)"
+      [value]="result()?.query.search ?? ''"
+    />
+  </mat-form-field>
+
+  @if (loading()) {
+    <app-loading />
+  } @else if (error()) {
+    <app-error-state [message]="error()!" />
+  } @else if ((result()?.data.items.length ?? 0) === 0) {
+    <app-empty-state title="No users" description="Create a user or connect the backend list endpoint." />
+  } @else {
+    <table mat-table [dataSource]="result()!.data.items" matSort (matSortChange)="onSort($event)">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+        <td mat-cell *matCellDef="let row">{{ row.name }}</td>
+      </ng-container>
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+        <td mat-cell *matCellDef="let row">{{ row.email }}</td>
+      </ng-container>
+      <ng-container matColumnDef="role">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Role</th>
+        <td mat-cell *matCellDef="let row">{{ row.role }}</td>
+      </ng-container>
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let row"><app-status-chip [active]="row.isActive" /></td>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let row">
+          <a mat-button [routerLink]="['/users', row.id]">View</a>
+          <a mat-button [routerLink]="['/users', row.id, 'edit']">Edit</a>
+          <button mat-button type="button" (click)="remove(row.id, row.email)">Delete</button>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <mat-paginator
+      [length]="result()!.data.total"
+      [pageIndex]="(result()!.query.page ?? 1) - 1"
+      [pageSize]="result()!.query.pageSize"
+      [pageSizeOptions]="[10, 20, 50]"
+      (page)="onPage($event)"
+    />
+  }
+</section>

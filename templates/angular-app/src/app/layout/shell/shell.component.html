@@ -1,0 +1,21 @@
+<mat-sidenav-container class="shell">
+  <mat-sidenav
+    class="shell__nav"
+    [mode]="sidebar.mobile() ? 'over' : 'side'"
+    [opened]="sidebar.mobile() ? sidebar.opened() : true"
+    (closedStart)="sidebar.close()"
+  >
+    <app-sidebar />
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-header />
+    @if (loading.active()) {
+      <mat-progress-bar mode="indeterminate" aria-label="Loading" />
+    }
+    <main class="shell__main">
+      <app-breadcrumbs />
+      <router-outlet />
+    </main>
+    <app-footer />
+  </mat-sidenav-content>
+</mat-sidenav-container>

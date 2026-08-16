@@ -1,0 +1,23 @@
+<mat-toolbar color="primary">
+  @if (sidebar.mobile()) {
+    <button mat-icon-button type="button" aria-label="Open navigation" (click)="sidebar.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  }
+  <span class="brand">{{APP_TITLE}}</span>
+  <span class="spacer"></span>
+  <button mat-icon-button type="button" [attr.aria-label]="'Theme: ' + theme.mode()" (click)="theme.cycle()">
+    <mat-icon>{{ theme.resolved() === 'dark' ? 'dark_mode' : 'light_mode' }}</mat-icon>
+  </button>
+  <button mat-icon-button type="button" aria-label="Notifications">
+    <mat-icon>notifications</mat-icon>
+  </button>
+  <button mat-button [matMenuTriggerFor]="userMenu">
+    {{ auth.user()?.name ?? 'Account' }}
+  </button>
+  <mat-menu #userMenu="matMenu">
+    <a mat-menu-item routerLink="/profile">Profile</a>
+    <a mat-menu-item routerLink="/settings">Settings</a>
+    <button mat-menu-item type="button" (click)="logout()">Logout</button>
+  </mat-menu>
+</mat-toolbar>

@@ -1,0 +1,57 @@
+{
+  "name": "create-my-angular-app",
+  "version": "1.0.0",
+  "description": "Scaffold a production-oriented Angular standalone application with Router, Material, auth, and enterprise defaults.",
+  "keywords": [
+    "create-angular-app",
+    "angular",
+    "typescript",
+    "angular-material",
+    "standalone",
+    "router",
+    "boilerplate",
+    "generator",
+    "scaffold",
+    "cli"
+  ],
+  "license": "MIT",
+  "author": "",
+  "homepage": "https://github.com/your-org/create-my-angular-app#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-org/create-my-angular-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-org/create-my-angular-app/issues"
+  },
+  "main": "src/index.js",
+  "bin": {
+    "create-my-angular-app": "./bin/cli.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "templates",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "start": "node bin/cli.js",
+    "test": "node --test tests/generator.test.js",
+    "pack:check": "npm pack --dry-run"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "dependencies": {
+    "commander": "^12.1.0",
+    "cross-spawn": "^7.0.6",
+    "picocolors": "^1.1.1",
+    "prompts": "^2.4.2",
+    "validate-npm-package-name": "^5.0.1"
+  },
+  "devDependencies": {},
+  "publishConfig": {
+    "access": "public"
+  }
+}

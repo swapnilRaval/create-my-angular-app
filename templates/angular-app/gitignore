@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.angular/
+coverage/
+.env
+.env.local
+logs/
+playwright-report/
+test-results/
+storybook-static/
+*.log
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.tsbuildinfo

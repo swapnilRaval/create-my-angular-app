@@ -1,0 +1,17 @@
+{
+  "name": "{{APP_TITLE}}",
+  "short_name": "{{PROJECT_NAME}}",
+  "theme_color": "#1254a5",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
